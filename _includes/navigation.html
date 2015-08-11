@@ -1,0 +1,6 @@
+{% for link in site.navigation %}
+    {% if page.url contains link.url %}
+        {% assign current = 'current' %}
+    {% endif %}
+    <a href="{{ link.url }}">{{ link.title }}</a>
+{% endfor %}

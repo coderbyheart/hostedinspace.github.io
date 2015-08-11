@@ -1,0 +1,64 @@
+- section: "Allgemeine Fragen"
+  q: "Was genau ist »Hosted in Space«?"
+  a: >
+   Bei »Hosted in Space« bekommst du einen Benutzeraccount auf einem Linuxserver, den du dir mit anderen teilst.
+
+   Im Gegensatz zu sonstigen Webhostern bekommst du per SSH Zugriff auf eine vollwerter Shell, wo du auch eigene
+   Dienste starten kannst.
+- section: "Allgemeine Fragen"
+  q: "Wo stehen die Server?"
+  a: >
+   Im Datacenterpark Falkenstein bei [Hetzner](http://www.hetzner.de).
+- section: "Allgemeine Fragen"
+  q: "Laufen eure Server mit Ökostrom?"
+  a: >
+   Bei Hetzner, ja.
+- section: "Allgemeine Fragen"
+  q: "Ich brauche root, um xyz zu machen / Kann ich sudo benutzen?"
+  a: >
+   Das geht leider nicht, da dies die Serversicherheit kompromitieren würde und damit auch die Sicherheit
+   anderer Benutzer gefärden würde. Wenn dir etwas fehlt und du es beim besten Willen einfach nicht hinbekommst,
+   melde dich.
+- section: "Netzwerk"
+  q: "Könnt ihr mir einen Port öffnen?"
+  a: >
+   Ja, per space-mod-ports kannst du das sogar selber.
+- section: "Nerdtum / Tiefergehende Fragen"
+  q: "Was passiert, wenn ein Programm zu viele Resourcen verbraucht?"
+  a: >
+   #### RAM
+
+   Auf allen Server läuft ein Prozesskiller, der bei zu hohem RAM-Verbraucht Warnmails verschickt und
+   bei viel zu hohem Verbrauch wird der Prozess zusätzlich beendet.
+- section: "Nerdtum / Tiefergehende Fragen"
+  q: "Wie finde ich raus mit welchem Linux und welcher Distribution in welcher Version der Server läuft?"
+  a: >
+   ```
+   lsb_release -a
+   ```
+- section: "Nerdtum / Tiefergehende Fragen"
+  q: "Funktioniert mosh?"
+  a: >
+   Am besten das Script space-setup-mosh verwenden, was die Installation vornimmt.
+- section: "Nerdtum / Tiefergehende Fragen"
+  q: "Kann ich einen Minecraft-Server betreiben?"
+  a: >
+   Nein! Das frißt einfach viel zu viele Ressourcen.
+- section: "Nerdtum / Tiefergehende Fragen"
+  q: "Kann ich einen Teamspeak Server betreiben?"
+  a: >
+   Ja, eine [Anleitung](http://wiki.hostedinspace.de/Anleitungen/Teamspeak) ist im [Wiki](http://wiki.hostedinspace.de).
+- section: "Nerdtum / Tiefergehende Fragen"
+  q: "Kann ich einen Tor-Node betreiben?"
+  a: >
+   Rein technisch, ja. Aber da alle Benutzer sich eine IPv4-Adresse teilen zieht der Betrieb potentiell andere in Mitleidenschaft.
+   Betreibe deswegen bitte keinesfalls einen Exitnode.
+- section: "Nerdtum / Tiefergehende Fragen"
+  q: "Kann ich Docker benutzen?"
+  a: >
+   Docker geht leider nicht, da Benutzer hierbei einer priviligierten Gruooe gehören müssen, welche es
+   erlaubt root zu werden.
+- section: "Support"
+  q: "Gibt es Support per IRC oder Jabber / XMPP?"
+  a: >
+   Ja, aber ohne Garantie. Der normale Weg ist E-Mail.
