@@ -3,7 +3,7 @@
   a: >
    Bei »Hosted in Space« bekommst du einen Benutzeraccount auf einem Linuxserver, den du dir mit anderen teilst.
 
-   Im Gegensatz zu sonstigen Webhostern bekommst du per SSH Zugriff auf eine vollwerter Shell, wo du auch eigene
+   Im Gegensatz zu sonstigen Webhostern bekommst du per SSH Zugriff auf eine vollwertige Shell, wo du auch eigene
    Dienste starten kannst.
 - section: "Allgemeine Fragen"
   q: "Wo stehen die Server?"
@@ -36,7 +36,7 @@
   a: >
    #### RAM
 
-   Auf allen Server läuft ein Prozesskiller, der bei zu hohem RAM-Verbraucht Warnmails verschickt und
+   Auf allen Server läuft ein Prozesskiller, der bei zu hohem RAM-Verbrauch Warnmails verschickt und
    bei viel zu hohem Verbrauch wird der Prozess zusätzlich beendet.
 - section: "Nerdtum / Tiefergehende Fragen"
   q: "Wie finde ich raus mit welchem Linux und welcher Distribution in welcher Version der Server läuft?"
@@ -47,11 +47,11 @@
 - section: "Nerdtum / Tiefergehende Fragen"
   q: "Funktioniert mosh?"
   a: >
-   Am besten das Script space-setup-mosh verwenden, was die Installation vornimmt.
+   Am besten das Script space-setup-mosh verwenden, welches die Installation vornimmt.
 - section: "Nerdtum / Tiefergehende Fragen"
   q: "Kann ich einen Minecraft-Server betreiben?"
   a: >
-   Nein! Das frißt einfach viel zu viele Ressourcen.
+   Nein! Das frisst einfach viel zu viele Ressourcen.
 - section: "Nerdtum / Tiefergehende Fragen"
   q: "Kann ich einen Teamspeak Server betreiben?"
   a: >
@@ -59,13 +59,13 @@
 - section: "Nerdtum / Tiefergehende Fragen"
   q: "Kann ich einen Tor-Node betreiben?"
   a: >
-   Rein technisch, ja. Aber da alle Benutzer sich eine IPv4-Adresse teilen zieht der Betrieb potentiell andere in Mitleidenschaft.
-   Betreibe deswegen bitte keinesfalls einen Exitnode.
+   Rein technisch, ja. Aber da sich alle Benutzer eine IPv4-Adresse teilen zieht der Betrieb potentiell andere in Mitleidenschaft.
+   Betreibe deswegen bitte keinesfalls einen Exitnode!
 - section: "Nerdtum / Tiefergehende Fragen"
   q: "Kann ich Docker benutzen?"
   a: >
-   Docker geht leider nicht, da Benutzer hierbei einer priviligierten Gruooe gehören müssen, welche es
-   erlaubt root zu werden.
+   Docker geht leider nicht, da Benutzer hierbei einer priviligierten Gruppe angehören müssen, welche es
+   erlaubt root zu werden, was die Sicherheits anderer Benutzer in Mitleidenschaft ziehen würde.
 - section: "Support"
   q: "Gibt es Support per IRC oder Jabber / XMPP?"
   a: >
