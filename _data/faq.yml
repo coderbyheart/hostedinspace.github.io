@@ -14,11 +14,19 @@
   a: >
    Bei Hetzner, ja.
 - section: "Allgemeine Fragen"
+  q: "Wieviele Server stehen hinter Hosted in Space?"
+  a: >
+   Da das Projekt brandneu ist, lediglich zwei.
+- section: "Allgemeine Fragen"
   q: "Ich brauche root, um xyz zu machen / Kann ich sudo benutzen?"
   a: >
    Das geht leider nicht, da dies die Serversicherheit kompromitieren würde und damit auch die Sicherheit
    anderer Benutzer gefärden würde. Wenn dir etwas fehlt und du es beim besten Willen einfach nicht hinbekommst,
    melde dich.
+- section: "Allgemeine Fragen"
+  q: "Kann ich einen weiteren Zugang haben für SFTP?"
+  a: >
+   Ja, im [Wiki](http://wiki.hostedinspace.de) steht wie.
 - section: "Netzwerk"
   q: "Könnt ihr mir einen Port öffnen?"
   a: >
