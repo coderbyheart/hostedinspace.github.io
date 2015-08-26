@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Häufig gestellte Fragen
-description: Hier finden Sie Antworten zu häufig gestellten Fragen zu Fintura
 ---
 # {{ page.title }}
 
@@ -13,7 +12,3 @@ description: Hier finden Sie Antworten zu häufig gestellten Fragen zu Fintura
 {{ faq.a|markdownify }}
 {% assign lastsection = faq.section %}
 {% endfor %}
-
-## Haben Sie eine individuelle Frage?
-
-[Kontaktieren Sie uns einfach …](/kontakt/)
