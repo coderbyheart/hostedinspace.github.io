@@ -13,4 +13,4 @@ Einen Benutzerzugang, auf dem du dich verwirklichen kannst. Über SSH mit Backup
 
 ## Was kost das?
 Du solltest selber entscheiden was du bereit bist zu zahlen. Da jedoch Server und Infrastruktur Geld kosten, wäre es schön, wenn du mindestens
-1 Euro zahlen würdest, korrekter und finanzierbarer wäre zwischen 5 und 10 Euro.
+1 Euro / Monat zahlen würdest, korrekter und Server und Infrastruktur finanzierbarer macht irgendwas zwischen 5 und 10 Euro / Monat.
