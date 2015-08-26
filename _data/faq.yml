@@ -16,7 +16,7 @@
 - section: "Allgemeine Fragen"
   q: "Wieviele Server stehen hinter Hosted in Space?"
   a: >
-   Da das Projekt brandneu ist, lediglich zwei.
+   Da das Projekt brandneu ist, aktuell lediglich zwei.
 - section: "Allgemeine Fragen"
   q: "Ich brauche root, um xyz zu machen / Kann ich sudo benutzen?"
   a: >
@@ -37,7 +37,7 @@
    #### RAM
 
    Auf allen Server läuft ein Prozesskiller, der bei zu hohem RAM-Verbrauch Warnmails verschickt und
-   bei viel zu hohem Verbrauch wird der Prozess zusätzlich beendet.
+   bei viel zu hohem Verbrauch den Prozess zusätzlich beendet.
 - section: "Nerdtum / Tiefergehende Fragen"
   q: "Wie finde ich raus mit welchem Linux und welcher Distribution in welcher Version der Server läuft?"
   a: >
