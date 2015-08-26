@@ -51,6 +51,8 @@ navigation:
    url: /blog/
  - title: FAQ
    url: /faq/
+ - title: Wiki
+   url: http://wiki.hostedinspace.de
  - title: Kontakt
    url: /kontakt/
  - title: Impressum
