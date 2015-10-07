@@ -47,8 +47,6 @@ share_hackernews: false
 
 # Link
 navigation:
- - title: Blog
-   url: /blog/
  - title: FAQ
    url: /faq/
  - title: Wiki
