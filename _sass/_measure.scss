@@ -2,3 +2,7 @@
   margin: 0 auto;
   max-width: $measure-width;
 }
+
+.measure h1, .measure h2, .measure h3, .measure h4, .measure h5, .measure h6 {
+  margin-top: .5em;
+}
