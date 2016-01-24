@@ -11,7 +11,7 @@ Quelle: [biboumi Website](http://biboumi.louiz.org/)
 Installierter XMPP-Server, wie zum Beispiel [Prosody](/Anleitungen/Prosody).
 
 ## Installation
-Wechsel in den Ordner *~/.opt*, klone das biboumi git-Repository von der Website und übersetzt es:
+Wechsel in den Ordner *~/.opt*, klone das biboumi Git-Repository von der Webseite und übersetzt es:
 
 {% highlight bash %}
 $ git clone git://git.louiz.org/biboumi.git
@@ -24,7 +24,7 @@ $ ./biboumi
 biboumi erwartet seine Konfiguration in *~/.config/biboumi/biboumi.cfg*.
 Dort werden die Daten hinterlegt, mit welchen sich biboumi mit Prosody oder einem anderen lokalen XMPP-Server verbindet. Diese Daten müssen auch in der config des XMPP-Servers hinterlegt werden.
 
-Erstelle die Datei und setze für `hostname` die Domain über die biboumi später angesprochen werden soll, für `password` irgendeinem Passwort und für `port` einen mit [`space-mod-ports open`](/Skripte/space-mod-ports#open) für dich geöffneten Port:
+Erstelle die Datei und setze für *hostname* die Domain über die biboumi später angesprochen werden soll, für *password* irgendeinem Passwort und für *port* einen mit [space-mod-ports open](/Skripte/space-mod-ports#open) für dich geöffneten Port:
 
 {% highlight bash %}
 $ cat > ~/.config/biboumi/biboumi.cfg <<__EOF__
@@ -34,17 +34,20 @@ port=deinport
 __EOF__
 {% endhighlight %}
 
-Damit Prosody die Verbindungsdaten akzeptiert und auf dem richtigen Port lauscht, müssen diese Werte noch in die Prosody config eingepflegt werden: `~/.var/lib/prosody/data/prosody.cfg.lua`
+Damit Prosody die Verbindungsdaten akzeptiert und auf dem richtigen Port lauscht, müssen diese Werte noch in die Konfigurationsdatei (*~/.var/lib/prosody/data/prosody.cfg.lua*) eingepflegt werden.
 
 Füge über der ersten VHost-Sektion Folgendes, mit deinem Port ein:
-```
+
+{% highlight bash %}
 component_ports = { deinport }
-```
+{% endhighlight %}
+
 und am Ende der Config füge Folgendes, natürlich auch angepasst, hinzu:
-```
+
+{% highlight bash %}
 Component "irc.deinedomain.tld"
          component_secret = "deinpasswort"
-```
+{% endhighlight %}
 
 Starte Prosody jetzt neu, damit die config neu eingelesen wird.
 

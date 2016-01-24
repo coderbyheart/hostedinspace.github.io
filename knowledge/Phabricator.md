@@ -59,4 +59,3 @@ You can follow the service log using
 
 $ tail -f ~/service/phd/log/main/current
 You're done! Navigate again to your subdomain and work on the open issues list.
-

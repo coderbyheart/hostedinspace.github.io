@@ -13,7 +13,7 @@ Dann nach dem wir die Installation abgeschlossen haben, wollen wir vor dem ausf�
 Mein Ansatz ist, gogs in einem Unterordner meiner Domain laufen zu lassen, also wollen wir das in die Konfiguration schreiben und außerdem brauchen wir noch eine freie Port Nummer. 
 Also sollte unser app.ini nun so aussehen:
 
-```
+{% highlight bash %}
 DOMAIN = $EUREURL
 HTTP_PORT = $EUERPORT
 ROOT_URL = https://$EUREURL/git/
@@ -24,13 +24,12 @@ HOST = 127.0.0.1:3306
 NAME = $USERNAME_gogs
 USER = $USERNAME
 PASSWD = $MYSQLPW
-```
+{% endhighlight %}
 
 und für den port brauchen wir noch in dem Webroot euer Domain im Ordner /git/ eine .htaccess Datei, welche so aussehen sollte:
 
-```
+{% highlight bash %}
 RewriteRule ^(.*) http://localhost:$EUERPORT/$1 [P]
-```
+{% endhighlight %}
 
 Damit passt jetzt alles, und ihr solltet, nachdem ihr gogs mit ./gogs web gestartet hab, euch euren Nutzer anlegen können.
-
