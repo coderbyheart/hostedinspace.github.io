@@ -6,9 +6,7 @@ build:
     - LANGUAGE=en_US.UTF-8
   commands:
     - sudo apt-get install -y locales
-    - sudo /usr/sbin/locale-gen C.UTF-8
-    - sudo /usr/sbin/update-locale LANG=C.UTF-8
     - sudo echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
-    - sudo locale-gen
+    - sudo /usr/sbin/locale-gen
     - bundle install --path .bundle
     - bundle exec jekyll build
