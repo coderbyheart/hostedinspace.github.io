@@ -17,46 +17,55 @@ Quelle: [Wikipedia/WeeChat](https://de.wikipedia.org/wiki/WeeChat)
 
 Das Verzeichnis _.weechat/ssl_ angelegt werden:
 
-`mkdir .weechat/ssl`
+{% highlight bash %}
+mkdir .weechat/ssl
+{% endhighlight %}
 
 SSL Schlüssel erzeugen:
 
-`openssl req -nodes -newkey rsa:4096 -keyout relay.pem -x509 -days 365 -out ~/.weechat/ssl/relay.pem`
+{% highlight bash %}
+openssl req -nodes -newkey rsa:4096 -keyout relay.pem -x509 -days 365 -out ~/.weechat/ssl/relay.pem
+{% endhighlight %}
 
-Mit [[space-mod-ports|Anleitungen/Ports-verwalten]] einen Port öffnen, der geöffnete Port wird nach dem Aufruf ausgegeben.
+Mit [space-mod-ports](Anleitungen/Ports-verwalten) einen Port öffnen, der geöffnete Port wird nach dem Aufruf ausgegeben.
 
-`space-mod-ports open`
+{% highlight bash %}
+space-mod-ports open
+{% endhighlight %}
 
 #### In weechat
 
 Relay SSL-Schlüssel setzten. Mit folgendem Befehl such weechat automatisch im Verzeichnißs *ssl* nach der Datei *relay.pem* und lädt diese.
 
-`/relay sslcertkey`
+{% highlight bash %}
+/relay sslcertkey
+{% endhighlight %}
 
 Abschließen mit dem freigegebenen Port ein Relay anlegen. Wichtig ist das ssl.-Prefix, sonst kommt später keien Verbindung zu stande.
 
-`/relay add ssl.weechat PORTNUMMER`
-
+{% highlight bash %}
+/relay add ssl.weechat PORTNUMMER
+{% endhighlight %}
 
 Wenn keine Verbindung zu stande kommt und man in der *relay.list* Einträge wie die folgenden sieht, hat man das *ssl.*  vergessen:
 
-```
+{% highlight bash %}
 [connected           ] 5/weechat/2001:bf7:540:0:c844:fdfd:b629:af0e, received: 78 bytes, sent: 0 bytes
                        started on: Fri, 31 Jul 2015 22:10:56, ended on: - 
 [connected           ] 4/weechat/2001:bf7:540:0:c844:fdfd:b629:af0e, received: 184 bytes, sent: 0 bytes
                        started on: Fri, 31 Jul 2015 22:10:27, ended on: -  
 [connected           ] 3/weechat/2001:bf7:540:0:c844:fdfd:b629:af0e, received: 184 bytes, sent: 0 bytes
-```
+{% endhighlight %}
 
 # Tipps und Tricks
 
 ## Backlog beim Start in Buffer laden
-Standardmäßig werden 20 Zeilen des Backlogs beim Start von weechat in die Buffer geladen. Die Einstellung `backlog` findet man in der `logger.conf` im Ordner `.weechat`.  
-Der Maximalwert ist `2147483647`.
+Standardmäßig werden 20 Zeilen des Backlogs beim Start von weechat in die Buffer geladen. Die Einstellung *backlog* findet man in der *logger.conf* im Ordner *.weechat*.
+Der Maximalwert ist *2147483647*.
 
 ## Weechat automatisch starten
-Dazu kann man einfach einen cronjob anlegen. Man öffnet den User-Crontag mit `crontab -e` und fügt folgenden Eintrag hinzu.
+Dazu kann man einfach einen cronjob anlegen. Man öffnet den User-Crontag mit *crontab -e* und fügt folgenden Eintrag hinzu.
 
-```
+{% highlight bash %}
 @reboot screen -d -m /usr/bin/weechat
-```
+{% endhighlight %}

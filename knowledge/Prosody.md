@@ -5,21 +5,23 @@ layout: default
 
 Zunächst muss geschaut werden, welche Lua-Version installiert ist, da Prosody nur mit Lua 5.1 läuft:
 
-```
+{% highlight bash %}
 $ lua -v
 Lua 5.1.5  Copyright (C) 1994-2012 Lua.org, PUC-Rio
-```
+{% endhighlight %}
 
 Danach müssen die nötigen Lua-Module mit luarocks installiert werden:
 
-`luarocks install luasocket --local`  
-`luarocks install luaexpat --local`  
-`luarocks install luafilesystem --local`  
-`luarocks install luasec --local`
+{% highlight bash %}
+$ luarocks install luasocket --local
+$ luarocks install luaexpat --local
+$ luarocks install luafilesystem --local
+$ luarocks install luasec --local
+{% endhighlight %}
 
-Wenn das geklappt hat, sieht das nach dem Befehl `luarocks list` in etwa so aus:
+Wenn das geklappt hat, sieht das nach dem Befehl *luarocks list* in etwa so aus:
 
-```
+{% highlight bash %}
 Installed rocks:
 ----------------
 
@@ -34,53 +36,59 @@ luasec
 
 luasocket
    3.0rc1-1 (installed) - /home/UUSER/.luarocks/lib/luarocks/rocks
-```
+{% endhighlight %}
 
 Danach kommt die eigentliche Installation von Prosody, welches wir mit toast installieren. Dazu zunächst auf der [Homepage](https://prosody.im/download/start) die aktuelle Version herausfinden und dann installieren:
 
-```
+{% highlight bash %}
 toast --confappend="--with-lua-include=/usr/include/lua5.1" arm https://prosody.im/downloads/source/prosody-$VERSIONSNUMMER.tar.gz
-```
+{% endhighlight %}
 
 Nun müssen ein paar Verzeichnisse für Daten und Konfigurationsdateien angelegt werden:
-`mkdir -p ~/.var/lib/prosody`
+
+{% highlight bash %}
+mkdir -p ~/.var/lib/prosody
+{% endhighlight %}
 
 Nun werden Zertifikate erstellt:
 
-```
+{% highlight bash %}
 mkdir -p ~/.var/lib/prosody/ssl/
 cd ~/.var/lib/prosody/ssl/
 openssl dhparam -out dh-4096.pem 4096
 openssl genrsa -out prosody_domain.tld_private.key 4096
 openssl req -new -key prosody_domain.tld_private.key -out prosody_domain.tld_cert.csr
-```
+{% endhighlight %}
 
 Wichtig ist der 'CommonName'; hier muss der Domainname stehen, z.B. 'domain.tld'.
 Mit dem Inhalt von prosody_domain.tld_cert.csr lässt sich nun ein kostenloses signiertes Zertifikat erstellen, bei [CaCert](http://cacert.org) oder [StartCom](http://startcom.com).
 
-Das Zertifikat in `~/.var/lib/prosody/ssl/prosody_domain.tld.crt` einfügen.
+Das Zertifikat in *~/.var/lib/prosody/ssl/prosody_domain.tld.crt* einfügen.
 
 Zertifikatsanfrage wieder entfernen:
-```
+
+{% highlight bash %}
 rm ~/.var/lib/prosody/ssl/prosody_domain.tld_cert.csr
-```
+{% endhighlight %}
 
 Erstellt noch eine PID-Datei:
-```
+
+{% highlight bash %}
 mkdir -p ~/.var/run
 touch ~/.var/run/prosody.pid
-```
+{% endhighlight %}
 
 Und nun prosody konfigurieren: Eine kommentierte Konfigurationsdatei liegt in `~/.toast/armed/etc/prosody/prosody.cfg.lua`. Kann nicht schaden, die mal für Referenzen beiseite zu legen:
-```
-cp ~/.toast/armed/etc/prosody/prosody.cfg.lua ~/.toast/armed/etc/prosody/prosody.cfg.lua.stock
-```
 
-Wir schreiben unsere config jedoch nach `~/.var/lib/prosody/data/prosody.cfg.lua`, damit sie bei späteren Updates mit toast nicht überschrieben wird.
+{% highlight bash %}
+cp ~/.toast/armed/etc/prosody/prosody.cfg.lua ~/.toast/armed/etc/prosody/prosody.cfg.lua.stock
+{% endhighlight %}
+
+Wir schreiben unsere config jedoch nach *~/.var/lib/prosody/data/prosody.cfg.lua*, damit sie bei späteren Updates mit toast nicht überschrieben wird.
 Folgende config wird so schon funktionieren, wie es die allermeisten brauchen.
 Anpassen müsst ihr unbedingt wieder UUSER (siehe [sed](https://de.wikipedia.org/wiki/Sed_%28Unix%29)-Schnippsel), eure Domain und die Ports:
 
-```
+{% highlight bash %}
 pidfile = "/home/UUSER/.var/run/prosody.pid";
 admins = { "admin@domain.tld" }
 modules_enabled = {
@@ -129,45 +137,42 @@ VirtualHost "domain.tld" -- anpassen!
 
         	options = { "no_sslv2", "no_sslv3", "no_ticket", "no_compression", "cipher_server_preference", "single_dh_use", "single_ecdh_use" }
 }
-```
+{% endhighlight %}
 
 Nett zu haben ist auch die MUC (Multi User Chat)-Funktion, sie erlaubt das erstellen von chatrooms.
 Sie setzt allerdings eine subdomain voraus und ist daher davon abhängig, ob euer Zertifikat das zulässt.
 Falls ja, könnt ihr folgendes an das Ende der config hängen:
 
-```
+{% highlight bash %}
 Component "subdomain.domain.tld" "muc"
 	name = "EinName"
 	restrict_room_creation = false --- user dürfen Räume selbst erstellen
-```
+{% endhighlight %}
 
 Jetzt verlinken wir unsere config dorthin, wo prosody sie erwarten wird:
 
-```
+{% highlight bash %}
 rm ~/.toast/armed/etc/prosody/prosody.cfg.lua
 ln -s ~/.var/lib/prosody/data/prosody.cfg.lua ~/.toast/armed/etc/prosody/prosody.cfg.lua
-```
+{% endhighlight %}
 
 Nun erstellen wir einen daemontools-service. Falls das euer erster ist:
 
-```
+{% highlight bash %}
 space-setup-svscan
-```
-
-```
 space-setup-service prosody ~/.toast/armed/bin/prosody
-```
+{% endhighlight %}
 
 Testen ob prosody läuft:
 
-```
+{% highlight bash %}
 $ prosodyctl status
 Prosody is running with PID XXXX
-```
+{% endhighlight %}
 
 Testen ob prosody auch die über luarocks installierten Module nutzt:
 
-```
+{% highlight bash %}
 $ prosodyctl about
 
 Prosody unknown
@@ -211,17 +216,16 @@ lxp:     	LuaExpat 1.3.0
 pposix:  	0.3.6
 socket:  	LuaSocket 3.0-rc1
 ssl:     	0.5.PR
-```
+{% endhighlight %}
 
 ## Account erstellen
 
-```
+{% highlight bash %}
 prosodyctl adduser admin@domain.tld
-```
+{% endhighlight %}
 
 Nun musst du bei deiner Domain noch passende SRV-Einträge anlegen. Wie das geht findet sich z.B. im [Prosody Wiki](https://prosody.im/doc/dns).
 
 Nun kannst du dich mit deinem client anmelden. Die meisten Clients werden nur funktionieren, wenn du den c2s-Port mit angibst.
 
 Zu guter Letzt: Teste deinen Prosody XMPP-Server im [IM Observatory](https://xmpp.net).
-

@@ -7,10 +7,16 @@ layout: default
 ## MongoDB installieren
 Let's Chat benötigt eine MongoDB Instanz.
 Bevor das möglich ist, muss einmal folgendes laufen, damit die Dienste vorbereitet sind:
-`space-setup-svscan`
+
+{% highlight bash %}
+space-setup-svscan
+{% endhighlight %}
 
 Die MongoDB-Instanz erstellt man nun mit:
-`space-setup-mongodb`
+
+{% highlight bash %}
+space-setup-mongodb
+{% endhighlight %}
 
 Die Ausgabe sollte wie folgt aussehen:
 
@@ -45,16 +51,27 @@ cd lets-chat
 {% endhighlight %}
 
 Nun müssen zusätzliche Node Pakete installiert werden. Hierzu einfach
-`npm install`
+
+{% highlight bash %}
+npm install
+{% endhighlight %}
+
 eingeben, der Rest passiert von alleine.
 
-Als nächstes muss die Konfigurationsdatei erzeugt und anpasst werden: `cp settings.yml.sample settings.yml`
+Als nächstes muss die Konfigurationsdatei erzeugt und anpasst werden:
+
+{% highlight bash %}
+cp settings.yml.sample settings.yml
+{% endhighlight %}
 
 ## Ports öffnen
 Bevor die Konfigurationsdatei bearbeitet werden kann, wird noch ein bzw. zwei Ports auf der/denen die App laufen kann benötigt. Einer wird definitiv für die Webanwendung benötigt, der zweite nur, falls XMPP (Jabber) benutzt werden soll.
 
 Hierzu führt man das folgende Kommando aus und merkt sich den Port:
-`space-mod-ports open`
+
+{% highlight bash %}
+space-mod-ports open
+{% endhighlight %}
 
 Wollt ihr nun ebenfalls XMPP benutzen, braucht ihr noch einen weiteren Port - also nochmal ausführen und wieder merken.
 

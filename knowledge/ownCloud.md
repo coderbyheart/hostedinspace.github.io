@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # owncloud
 
 [ownCloud](http://owncloud.org/) ist eine freie Software, mit der persönliche Daten wie eigene Dokumente, Kalender- und Kontaktdaten sowie Musik auf einem Server gespeichert und so z.B. mit dem eigenen Rechner, Tablet oder einem Smartphone synchronisiert werden können. Wer all diese Daten nicht Google, Dropbox oder anderen Anbietern mit werbefinanziertem Geschäftsmodell anvertrauen möchte, der kann mit OwnCloud seine eigene kleine Cloud betreiben. 
@@ -6,34 +9,34 @@ Im folgenden umreißen wir kurz zwei Installationsmethoden und weitere Möglichk
 
 ## ownCloud installieren
 
-Du kannst den [[http://owncloud.org/install/#webInstallerModal|ownCloud Web Installer]] verwenden, und zwar exakt so wie dort beschrieben. Du kannst maximal den ersten und den zweiten Schritt noch optimieren, indem Du das auf der Shell direkt in Deinen Uberspace runterlädst, statt den Umweg über Deinen Rechner zu machen.
+Du kannst den [ownCloud Web Installer](http://owncloud.org/install/#webInstallerModal) verwenden, und zwar exakt so wie dort beschrieben. Du kannst maximal den ersten und den zweiten Schritt noch optimieren, indem Du das auf der Shell direkt in Deinen Uberspace runterlädst, statt den Umweg über Deinen Rechner zu machen.
 
 ## ownCloud im DocumentRoot
 
 Am einfachsten ist die Installation in deinen DocumentRoot:
 
-<code bash>
+{% highlight bash %}
 cd /var/www/virtual/$USER/html
 wget https://download.owncloud.com/download/community/setup-owncloud.php
-</code>
+{% endhighlight %}
 
 ## ownCloud unter einer Subdomain
 
-Du kannst ownCloud auch [[domain:subdomain#extra_ordner|unter einer Subdomain]] betreiben, dafür brauchst Du dann die Config-Direktive ''RewriteBase /'' in der .htaccess-Datei von ownCloud. 
+Du kannst ownCloud auch [unter einer Subdomain](domain:subdomain#extra_ordner) betreiben, dafür brauchst Du dann die Config-Direktive ''RewriteBase /'' in der .htaccess-Datei von ownCloud. 
 
-<code bash>
+{% highlight bash %}
 cd /var/www/virtual/$USER/<SubDomain>
 echo "RewriteBase /" > .htaccess
 wget https://download.owncloud.com/download/community/setup-owncloud.php
-</code>
+{% endhighlight %}
 
 ## Einrichten von ownCloud
 
 Um die Einrichtung zu beginnen, rufe ...
 
-<code bash>
+{% highlight bash %}
 https://<username>.<servername>.uberspace.de/setup-owncloud.php
-</code>
+{% endhighlight %}
 
 ... (oder eben die entsprechende Subdomain) in deinem Browser auf. Wenn du Owncloud in den DocumentRoot (also nicht unter ''/owncloud'') installieren möchtest, kannst du als Zielordner einfach ''.'' angeben. Mit einem Klick auf ''next'' sollte der Installer dir Bescheid geben, dass die Installation erfolgreich war.
 
@@ -110,12 +113,12 @@ Wenn du die cron.php einbinden möchtest, dann achte bitte auf die Stolperfalle 
 
 Häufig gibt es Probleme mit dem Upload von großen Dateien. Serverseitig liegt die von uns voreingestellte Grenze bei 300 MB (noch größere Uploads per HTTP dauern einfach zu lange, für sowas nimm bitte SFTP/SCP), aber die meisten Skriptsprachen steigen schon vorher aus. Das betrifft auch ownCloud, das in PHP geschrieben ist, was in seiner Default-Konfiguration bei so großen Uploads nicht mitspielt. Wenn Du das nicht bereits für eine andere Installation behoben hast, kannst Du mit den folgenden Befehlen PHP für größere Uploads vorbereiten:
 
-<code bash>
+{% highlight bash %}
 cp /package/host/localhost/php-$PHPVERSION/lib/php.ini ~/etc/
 sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 290M/" ~/etc/php.ini 
 sed -i -e "s/^post_max_size.*/post_max_size = 300M/" ~/etc/php.ini 
 killall -u $USER php-cgi
-</code>
+{% endhighlight %}
 
 ===== Was nicht geht =====
 
@@ -123,10 +126,10 @@ killall -u $USER php-cgi
 
 Seit Owncloud 8 benötigt die News App eine neuere Version von ''libxml'':
 
-<code>
+{% highlight bash %}
 Library libxml with a version higher than 2.7.8 is required - available 
 version 2.7.6.0.
-</code>
+{% endhighlight %}
 
 Und da gibt es ein gewisses Problem: Die ''libxml2'' ist eine Bibliothek, die von der Distribution bereitgestellt und auch gepflegt wird, und das ist bei CentOS halt nicht die Version 2.7.8. Das wird sich innerhalb des Lebenszyklus der Distribution auch nicht ändern; hier wird aus Gründen der Abwärtskompatibilität [[https://wiki.uberspace.de/faq#die_version_von_ist_auf_eurem_server_so_alt_koennt_ihr_da_was_machen|lediglich Modellpflege betrieben]]. 
 

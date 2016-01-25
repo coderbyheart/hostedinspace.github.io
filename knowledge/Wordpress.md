@@ -5,21 +5,19 @@ layout: default
 
 ## MySQL
 
-
-
 ## Installation
 
 Die Installation findet exemplarisch unter der Benutzerdomain statt:
 
-```
+{% highlight bash %}
 $ cd $HOME/domains/default
-```
+{% endhighlight %}
 
 Dann muss Wordpress heruntergeladen und entpackt werden:
 
-```
+{% highlight bash %}
 $ curl http://de.wordpress.org/latest-de_DE.tar.gz | tar -xzf -
-```
+{% endhighlight %}
 
 Als nächstes muss der Installationswizard im Browser besucht werden, welcher unter http://$BENUTZERNAME.$HOST.hostedinspace.de/wordpress/ erreichbar ist.
 

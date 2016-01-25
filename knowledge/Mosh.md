@@ -19,16 +19,21 @@ mosh baut auf SSH auf und möchte mehr Komfort bieten. Der Verbindungsaufbau wir
 Da SSH verwendet wird, muss auch ein private Key schon in SSH hinterlegt oder das Passwort für den Nutzer bekannt sein.
 
 Ist die Verbindung über mosh aufgebaut, hat man folgende Vorteile:
-* reagiert der Server mal nicht sofort, friert nicht das Fenster ein, sondern alle Eingaben, welche noch nicht übertragen wurden, werden unterstrichen angezeigt und man kann normal weiterschreiben
-* mosh hält die Verbindung oder baut sie wieder auf auch bei zwischenzeitlicher Unterbrechung, z.B. wenn ...
-  * ... man seinen Computer für eine Zeit im Standby-Modus hatte
-  * ... sich der eigene Uplink oder die IP geändert hat
+
+  * reagiert der Server mal nicht sofort, friert nicht das Fenster ein, sondern alle Eingaben, welche noch nicht übertragen wurden, werden unterstrichen angezeigt und man kann normal weiterschreiben
+  * mosh hält die Verbindung oder baut sie wieder auf auch bei zwischenzeitlicher Unterbrechung, z.B. wenn ...
+    * ... man seinen Computer für eine Zeit im Standby-Modus hatte
+    * ... sich der eigene Uplink oder die IP geändert hat
 
 
 ## Installation
-Die Installation übernimmt das Skript [`space-setup-mosh`](/Skripte/space-setup-mosh).
+Die Installation übernimmt das Skript *[space-setup-mosh](/Skripte/space-setup-mosh)*.
 
-Um mosh nach der Installation zu nutzen zu können, wird noch ein freier Port benötigt. Dies wird erledigt mit [`space-mod-ports open`](https://wiki.hostedinspace.de/Skripte/space-mod-ports#space-mod-ports_open).
+Um mosh nach der Installation zu nutzen zu können, wird noch ein freier Port benötigt. Dies wird erledigt mit *[space-mod-ports open](https://wiki.hostedinspace.de/Skripte/space-mod-ports#space-mod-ports_open)*.
 
 ## Nutzung
-mosh wird genauso genutzt wir mosh. Der Verbindung unterscheidet sich generell nur dadurch, dass `mosh`, statt `ssh` als Befehl genutzt wird. Um mosh zu zwingen den vorher geöffneten Port zu verwenden, wird noch `-p PORTNUMMER` an den Befehl angefügt: `mosh -p PORTNUMMER NUTZER@andromeda.hostedinspace.de`
+mosh wird genauso genutzt wir mosh. Der Verbindung unterscheidet sich generell nur dadurch, dass *mosh*, statt *ssh* als Befehl genutzt wird. Um mosh zu zwingen den vorher geöffneten Port zu verwenden, wird noch *-p PORTNUMMER* an den Befehl angefügt:
+
+{% highlight bash %}
+mosh -p PORTNUMMER NUTZER@andromeda.hostedinspace.de
+{% endhighlight %}
