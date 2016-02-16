@@ -27,7 +27,11 @@ Ist die Verbindung über mosh aufgebaut, hat man folgende Vorteile:
 
 
 ## Installation
-Die Installation übernimmt das Skript *[space-setup-mosh](/Skripte/space-setup-mosh)*.
+Die Installation übernimmt das Skript *space-setup-mosh*.
+
+Dieses Skript lädt den Source-Code von mosh herunter und kompiliert die ausführbaren Dateien. mosh liegt dann im Ordner ~/.opt/mosh mit den Binaries im Unterordner bin.
+
+Der Vorgang dauert knapp 5 Minuten.
 
 Um mosh nach der Installation zu nutzen zu können, wird noch ein freier Port benötigt. Dies wird erledigt mit *[space-mod-ports open](https://wiki.hostedinspace.de/Skripte/space-mod-ports#space-mod-ports_open)*.
 
