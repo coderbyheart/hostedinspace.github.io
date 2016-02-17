@@ -66,3 +66,7 @@ gems:
   - jekyll-sitemap
 
 exclude: ['Gemfile', 'Gemfile.lock', '.gitkeep']
+
+compress_html:
+  clippings: all
+  comments: all
