@@ -33,7 +33,7 @@ Dieses Skript lädt den Source-Code von mosh herunter und kompiliert die ausfüh
 
 Der Vorgang dauert knapp 5 Minuten.
 
-Um mosh nach der Installation zu nutzen zu können, wird noch ein freier Port benötigt. Dies wird erledigt mit *[space-mod-ports open](https://wiki.hostedinspace.de/Skripte/space-mod-ports#space-mod-ports_open)*.
+Um mosh nach der Installation zu nutzen zu können, wird noch ein freier Port benötigt. Dies wird erledigt mit *[space-mod-ports open](/knowledge/space-mod-ports/)*.
 
 ## Nutzung
 mosh wird genauso genutzt wir mosh. Der Verbindung unterscheidet sich generell nur dadurch, dass *mosh*, statt *ssh* als Befehl genutzt wird. Um mosh zu zwingen den vorher geöffneten Port zu verwenden, wird noch *-p PORTNUMMER* an den Befehl angefügt:

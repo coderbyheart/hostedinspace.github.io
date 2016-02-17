@@ -1,5 +1,5 @@
 - section: "Allgemeine Fragen"
-  q: "Was genau ist »Hosted in Space«?"
+  q: "Was ist »Hosted in Space«?"
   a: >
    Bei »Hosted in Space« bekommst du einen Benutzeraccount auf einem Linuxserver, den du dir mit anderen teilst.
 
@@ -30,7 +30,7 @@
 - section: "Netzwerk"
   q: "Könnt ihr mir einen Port öffnen?"
   a: >
-   Ja, per space-mod-ports kannst du das sogar selber.
+   Ja, per [space-mod-ports](/knowledge/space-mod-ports/) kannst du das sogar selber.
 - section: "Nerdtum / Tiefergehende Fragen"
   q: "Was passiert, wenn ein Programm zu viele Resourcen verbraucht?"
   a: >
@@ -55,7 +55,7 @@
 - section: "Nerdtum / Tiefergehende Fragen"
   q: "Kann ich einen Teamspeak Server betreiben?"
   a: >
-   Ja, eine [Anleitung](http://wiki.hostedinspace.de/Anleitungen/Teamspeak) ist im [Wiki](http://wiki.hostedinspace.de).
+   Ja: in der [Anleitung](https://hostedinspace.de/knowledge/Teamspeak/) steht wie das geht.
 - section: "Nerdtum / Tiefergehende Fragen"
   q: "Kann ich einen Tor-Node betreiben?"
   a: >
