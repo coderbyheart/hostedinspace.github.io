@@ -1,7 +1,7 @@
 # Site settings
 title: Hosted in Space
 email: post@hostedinspace.de
-description: 
+description: "Hosted in Space ist Webhosting, Shellhosting, Mailhosting, XMPP-Hosting. Für dich, für mich, für alle. Für alle, denen Datenschutz wichtig ist, sich auf der Kommandozeile wohl fühlen und unixoide Betriebssysteme schöner finden."
 baseurl: "" # the subpath of your site, e.g. /blog/
 # url: "http://yourdomain.com" # the base hostname & protocol for your site
 
@@ -21,7 +21,7 @@ disqus_shortname:
 # Social icons
 github_username: hostedinspace
 stackoverflow_id:
-twitter_username:
+twitter_username: hostedinspace
 google_plus_id:
 linkedin_username:
 angellist_username:
