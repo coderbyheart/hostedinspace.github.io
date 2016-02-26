@@ -14,7 +14,7 @@ Die verschiedenen PHP-Interpreter liegen unter */opt*; mit _ls -ld /opt/php-*_ k
 nachschauen, welche konkreten Versionen verfügbar sind. So könnte das exemplarisch aussehen:
 
 {% highlight bash %}
-mortzu@andromeda ~ % ls -ld ls -ld /opt/php-*
+benutzername@andromeda ~ % ls -ld ls -ld /opt/php-*
 lrwxrwxrwx  1 root root    7 Feb 26 14:29 /opt/php-5 -> php-5.6
 lrwxrwxrwx  1 root root   10 Feb 12 13:25 /opt/php-5.5 -> php-5.5.32
 drwxr-xr-x 11 root root 4096 Feb 21 20:15 /opt/php-5.5.32
@@ -47,7 +47,7 @@ In deinem Homedir (/home/benutzername) gibt es im Ordner .config/etc eine Datei 
 in der die Variable *PHPVERSION* gesetzt wird:
 
 {% highlight bash %}
-mortzu@andromeda ~ % cat ~/.config/etc/phpversion
+benutzername@andromeda ~ % cat ~/.config/etc/phpversion
 ## 2016-02-26
 PHPVERSION=7.0
 {% endhighlight %}
@@ -69,11 +69,11 @@ welches in deinem Homedir in dem Verzeichnis *fcgi-bin* liegt. Dieses Script bin
 So sieht das aus:
 
 {% highlight bash %}
-mortzu@andromeda ~ % cat ~/fcgi-bin/php-fcgi-starter
+benutzername@andromeda ~ % cat ~/fcgi-bin/php-fcgi-starter
 #! /usr/bin/env sh
 
-export USER=mortzu
-export HOME=/home/mortzu
+export USER=benutzername
+export HOME=/home/benutzername
 . /etc/profile.d/php_version.sh
 
 PHP_FCGI_CHILDREN=0
@@ -98,7 +98,7 @@ Die *php.ini* liegt dabei im Verzeichnis *lib* des von dir gewählten PHP-Interp
 Mittels *php --ini* kannst du dir den vollständigen Pfad anzeigen lassen. So sieht das aus:
 
 {% highlight bash %}
-mortzu@andromeda ~ % php --ini
+benutzername@andromeda ~ % php --ini
 phpConfiguration File (php.ini) Path: /opt/php-7.0.3/etc
 Loaded Configuration File:         /opt/php-7.0.3/etc/php.ini
 Scan for additional .ini files in: /opt/php-7.0.3/etc/conf.d
@@ -117,7 +117,7 @@ einer PHP-Seite die gewünschten Änderungen zum Tragen kommen.
 Das geht am einfachsten so:
 
 {% highlight bash %}
-mortzu@andromeda ~ % killall php-cgi
+benutzername@andromeda ~ % killall php-cgi
 {% endhighlight %}
 
 Eine Meldung *php-cgi: Kein Prozess abgebrochen* stellt kein Problem dar: Sie signalisiert einfach nur,
@@ -142,7 +142,7 @@ Dies ist mal ein __exemplarischer__ Aufruf am Beispiel des PEAR-Moduls *Mail_Mim
 (du musst diesen Schritt natürlich nicht nachvollziehen, ist ja nur ein Beispiel):
 
 {% highlight bash %}
-mortzu@andromeda ~ % space-mod-pear add Mail_Mime
+benutzername@andromeda ~ % space-mod-pear add Mail_Mime
 downloading Mail_Mime-1.8.1.tgz ...
 Starting to download Mail_Mime-1.8.1.tgz (31,530 bytes)
 ........done: 31,530 bytes
@@ -153,16 +153,32 @@ install ok: channel://pear.php.net/Mail_Mime-1.8.1
 
 Analog zu *space-mod-pear* gibt es *space-mod-pecl*, welches sich um die De-/Installation von PECL-Modulen kümmmert:
 
+Hier ein Beispiel:
+
+{% highlight bash %}
+benutzername@andromeda ~ % space-mod-pecl add intl
+downloading intl-3.0.0.tgz ...
+Starting to download intl-3.0.0.tgz (248,200 bytes)
+.................done: 248,200 bytes
+150 source files, building
+running: phpize
+Configuring for:
+PHP Api Version:         20131106
+Zend Module Api No:      20131226
+Zend Extension Api No:   220131226
+...
+{% endhighlight %}
+
 ## Interpreter nicht vergessen
 
 Vergiss dabei bitte nicht, dass bei Skriptsprachen, wie PHP, Perl oder Python,
 der jeweilige Interpreter voranzustellen ist. Skripte sind keine ausführbaren Binaries,
 sondern müssen interpretiert werden, Du musst sie daher __immer__ mit Angabe des Interpreters aufrufen,
-egal ob auf der Shell, in einer Crontab oder in einem runwhen-Job.
+egal ob auf der Shell oder in einer Crontab.
 Das heißt, in einer Crontab müsste der Aufruf zum Beispiel so aussehen:
 
 {% highlight bash %}
-*/5 * * * * php /home/DeinUsername/DeinSkript.php
+*/5 * * * * php /home/benutzername/deinscript.php
 {% endhighlight %}
 
 Der Interpreter ist in diesem Fall das Programm *php*.
@@ -178,7 +194,7 @@ wenn du dieses Modul nutzen willst. Möchtest du unbedingt schon mit der Beta-Ve
 kannst du jene wie folgt installieren:
 
 {% highlight bash %}
-mortzu@andromeda ~ % space-mod-pecl add https://pecl.php.net/get/imagick-3.4.0RC2.tgz
+benutzername@andromeda ~ % space-mod-pecl add https://pecl.php.net/get/imagick-3.4.0RC2.tgz
 {% endhighlight %}
 
 ### redis
