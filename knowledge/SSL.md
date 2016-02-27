@@ -69,7 +69,7 @@ Nun kannst Du <https://example.com> aufrufen.
 
 ## Optional: SSL für die Website erzwingen
 
-Lege dazu eine `.htaccess` im Verzeichnis `~/domains/default` (für `example.com`) bzw. `~/domains/<domain>` bei allen anderen Domains mit diesem Inhalt:
+Lege dazu eine `.htaccess` Datei im Verzeichnis `~/domains/example.com` mit diesem Inhalt an:
 
     # Force HTTPs
     RewriteEngine On
