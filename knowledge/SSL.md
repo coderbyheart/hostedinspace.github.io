@@ -1,10 +1,10 @@
 # Website-Traffice mit SSL verschlüsseln
 
-In diesem Guide wird beschrieben, wie man am Beispiel der eigenen Domain `username.andromeda.hostedinspace.de` für diese ein kostenloses SSL-Zertifikat mit [letsencrypt](https://letsencrypt.org/) erstellt und für diese Domain aktiviert.
+In diesem Guide wird beschrieben, wie man am Beispiel der eigenen Domain `example.com` für diese ein kostenloses SSL-Zertifikat mit [letsencrypt](https://letsencrypt.org/) erstellt und für diese Domain aktiviert.
 
 ## Ein neues Zertifikat erstellen
 
-    space-run-letsencrypt certonly -d username.andromeda.hostedinspace.de
+    space-run-letsencrypt certonly -d example.com
 
 Die Ausgabe sieht in etwa so aus:
 
@@ -24,7 +24,7 @@ Die Ausgabe sieht in etwa so aus:
 
 ## Das Zertifikat für die Verwendung im Webserver vorbereiten
 
-    space-prepare-certificate -k ~/.config/letsencrypt/live/username.andromeda.hostedinspace.de/privkey.pem -c ~/.config/letsencrypt/live/username.andromeda.hostedinspace.de/cert.pem -i ~/.config/letsencrypt/live/username.andromeda.hostedinspace.de/chain.pem
+    space-prepare-certificate -k ~/.config/letsencrypt/live/example.com/privkey.pem -c ~/.config/letsencrypt/live/example.com/cert.pem -i ~/.config/letsencrypt/live/example.com/chain.pem
 
 Die Ausgabe sieht so aus:
 
@@ -33,15 +33,15 @@ Die Ausgabe sieht so aus:
     ✓ Check configuration of webserver
     ✓ Restart webserver
 
-Nun kannst Du <https://username.andromeda.hostedinspace.de> aufrufen.
+Nun kannst Du <https://example.com> aufrufen.
 
 ## Optional: SSL für die Website erzwingen
 
-Lege dazu eine `.htaccess` im Verzeichnis `~/domains/default` (für `username.andromeda.hostedinspace.de`) bzw. `~/domains/<domain>` bei allen anderen Domains mit diesem Inhalt:
+Lege dazu eine `.htaccess` im Verzeichnis `~/domains/default` (für `example.com`) bzw. `~/domains/<domain>` bei allen anderen Domains mit diesem Inhalt:
 
     # Force HTTPs
     RewriteEngine On
     RewriteCond %{HTTPS} !=on
     RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R=permanent,L]
 
-Nun wird jeder Aufruf von <http://username.andromeda.hostedinspace.de> nach <https://username.andromeda.hostedinspace.de> umgeleitet.
+Nun wird jeder Aufruf von <http://example.com> nach <https://example.com> umgeleitet.
