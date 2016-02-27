@@ -13,6 +13,16 @@ Die DNS-Einträge müssen auf `andromeda.hostedinspace.de` zeigen. Dies kannst D
 
 Einfacher geht es indem Du einen `CNAME`-Record mit `andromeda.hostedinspace.de` anlegst.
 
+## Domain anlegen (ohne SSL)
+
+Dies ist nötig, damit letsencrypt die Inhaberschaft der Domain verifizieren kann.
+
+    space-mod-vhost add --domain=example.com
+
+Die Ausgabe sieht so aus
+
+    ✓ Domain (example.com) added successfully
+
 ## Ein neues Zertifikat erstellen
 
     space-run-letsencrypt certonly -d example.com
@@ -43,6 +53,17 @@ Die Ausgabe sieht so aus:
     ✓ Certificate imported
     ✓ Check configuration of webserver
     ✓ Restart webserver
+
+## Vhost für SSL anlegen
+
+Nun kannst Du den VHOST für die verschlüsselte Domain anlegen.
+
+    space-mod-vhost add --domain=example.com --ssl
+
+Die Ausgabe sieht so aus
+
+    ✗ Directory /var/www/username/domains/example.com already exists. Not creating.
+    ✓ Domain (example.com) added successfully
 
 Nun kannst Du <https://example.com> aufrufen.
 
