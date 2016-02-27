@@ -2,6 +2,17 @@
 
 In diesem Guide wird beschrieben, wie man am Beispiel der eigenen Domain `example.com` für diese ein kostenloses SSL-Zertifikat mit [letsencrypt](https://letsencrypt.org/) erstellt und für diese Domain aktiviert.
 
+## DNS Einträge setzen
+
+Die DNS-Einträge müssen auf `andromeda.hostedinspace.de` zeigen. Dies kannst Du erreichen, indem Du einen `A`-Record und einen `AAAA`-Record mit den Angaben anlegst, die dir nach dem Login angezeigt werden.
+
+    ssh username@andromeda.hostedinspace.de
+    …
+    Shared IPv4 address: …
+    Your IPv6 address: …
+
+Einfacher geht es indem Du einen `CNAME`-Record mit `andromeda.hostedinspace.de` anlegst.
+
 ## Ein neues Zertifikat erstellen
 
     space-run-letsencrypt certonly -d example.com
