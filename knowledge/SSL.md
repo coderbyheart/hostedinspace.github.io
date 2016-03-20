@@ -15,9 +15,13 @@ Einfacher geht es indem Du einen `CNAME`-Record mit `andromeda.hostedinspace.de`
 
 ## Domain anlegen (ohne SSL)
 
+Die domain wird als Umgebungsvariable definiert, damit die nachfolgenden Befehle einfach per copy & paste verwendet werden können.
+
+    DOMAIN=example.com
+
 Dies ist nötig, damit letsencrypt die Inhaberschaft der Domain verifizieren kann.
 
-    space-mod-vhost add --domain=example.com
+    space-mod-vhost add --domain=$DOMAIN
 
 Die Ausgabe sieht so aus
 
@@ -25,7 +29,7 @@ Die Ausgabe sieht so aus
 
 ## Ein neues Zertifikat erstellen
 
-    space-run-letsencrypt certonly -d example.com
+    space-run-letsencrypt certonly -d $DOMAIN
 
 Die Ausgabe sieht in etwa so aus:
 
@@ -45,7 +49,7 @@ Die Ausgabe sieht in etwa so aus:
 
 ## Das Zertifikat für die Verwendung im Webserver vorbereiten
 
-    space-prepare-certificate -k ~/.config/letsencrypt/live/example.com/privkey.pem -c ~/.config/letsencrypt/live/example.com/cert.pem -i ~/.config/letsencrypt/live/example.com/chain.pem
+    space-prepare-certificate -k ~/.config/letsencrypt/live/$DOMAIN/privkey.pem -c ~/.config/letsencrypt/live/$DOMAIN/cert.pem -i ~/.config/letsencrypt/live/$DOMAIN/chain.pem
 
 Die Ausgabe sieht so aus:
 
@@ -58,7 +62,7 @@ Die Ausgabe sieht so aus:
 
 Nun kannst Du den VHOST für die verschlüsselte Domain anlegen.
 
-    space-mod-vhost add --domain=example.com --ssl
+    space-mod-vhost add --domain=$DOMAIN --ssl
 
 Die Ausgabe sieht so aus
 
