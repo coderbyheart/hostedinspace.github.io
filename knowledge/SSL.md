@@ -15,7 +15,7 @@ Einfacher geht es indem Du einen `CNAME`-Record mit `andromeda.hostedinspace.de`
 
 ## Domain anlegen (ohne SSL)
 
-Die domain wird als Umgebungsvariable definiert, damit die nachfolgenden Befehle einfach per copy & paste verwendet werden können.
+Die Domain wird als Umgebungsvariable definiert, damit die nachfolgenden Befehle einfach per Copy&Paste verwendet werden können.
 
     DOMAIN=example.com
 
